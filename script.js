@@ -1,0 +1,40 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Fast Exit Functionality ---
+    const fastExitButtons = document.querySelectorAll('.fast-exit');
+
+    function performFastExit(event) {
+        event.preventDefault(); // Prevent default link behavior if it's an anchor
+        // Redirect to a neutral, common website
+        window.location.href = 'https://www.google.com';
+    }
+
+    fastExitButtons.forEach(button => {
+        button.addEventListener('click', performFastExit);
+    });
+
+    // --- Search Bar Functionality ---
+    const searchInput = document.getElementById('searchInput');
+
+    if (searchInput) {
+        searchInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission
+                alert('Search functionality is not implemented yet.');
+                // In a real application, you would trigger the search here.
+            }
+        });
+    }
+    
+    // --- Card Click Alert (for demonstration) ---
+    const resourceCards = document.querySelectorAll('.card');
+    
+    resourceCards.forEach(card => {
+        card.addEventListener('click', (event) => {
+            event.preventDefault();
+            const cardTitle = card.querySelector('h3').textContent;
+            alert(`You clicked on: "${cardTitle}".\nThis would navigate to the resource page.`);
+        });
+    });
+
+});
