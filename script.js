@@ -13,6 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', performFastExit);
     });
 
+    // --- Fast Exit on ESC key ---
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            performFastExit(event);
+        }
+    });
+
     // --- Search Bar Functionality ---
     const searchInput = document.getElementById('searchInput');
 
